@@ -1,0 +1,14 @@
+<launch>
+<node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+<rosparam command="load" file="$(find usb_cam)/config/usb_cam.yml"/>
+
+<param name="video_device" value="/dev/video0" />
+<param name="image_width" value="640" />
+<param name="image_height" value="480" />
+<param name="pixel_format" value="mjpeg" />
+<param name="io_method" value="mmap" />
+<param name="frame_rate" value="30" />
+<param name="autofocus" value="false" />
+<param name="autogain" value="true" />
+</node>
+</launch>
