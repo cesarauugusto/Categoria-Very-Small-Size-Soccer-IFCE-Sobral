@@ -1,0 +1,5 @@
+        lower_red = np.array([0, 77, 238])
+        upper_red = np.array([179, 255, 255])
+
+        lower_blue = np.array([103, 105, 124])
+        upper_blue = np.array([179, 255, 255])

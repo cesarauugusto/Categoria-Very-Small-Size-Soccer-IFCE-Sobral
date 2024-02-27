@@ -1,0 +1,3 @@
+<launch>
+  <node name="esp32_communication" pkg="color_detection_and_control" type="esp32_node" output="screen"/>
+</launch>
