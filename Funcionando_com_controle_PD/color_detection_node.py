@@ -8,7 +8,7 @@ from cv_bridge import CvBridge
 from geometry_msgs.msg import Point, Pose, Twist
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA, Float64MultiArray
-from math import atan2, sqrt, degrees
+from math import atan2, sin, cos, degrees
 
 class ColorDetectionNode:
     def __init__(self):
@@ -128,10 +128,12 @@ class ColorDetectionNode:
         # Calculate angle between robot orientation and desired orientation
         desired_orientation = atan2(square_center[1] - robot_center[1], square_center[0] - robot_center[0])
         robot_orientation = atan2(ball_center[1] - robot_center[1], ball_center[0] - robot_center[0])
-        angular_difference = desired_orientation - robot_orientation
+        angular_difference = atan2(sin(desired_orientation - robot_orientation), cos(desired_orientation - robot_orientation))
 
-        # Calculate linear velocity and angular velocity
+        # Calculate linear velocity
         linear_velocity = self.linear_speed
+
+        # Calculate angular velocity
         angular_velocity = angular_difference * self.angular_speed
 
         return linear_velocity, angular_velocity
@@ -141,7 +143,7 @@ class ColorDetectionNode:
         angular_velocity *= 10
         # Parâmetros de controle PID
         kp = 2
-        kd = 0.5
+        kd = 0.8
 
         # Calcula o erro
         error = angular_velocity
