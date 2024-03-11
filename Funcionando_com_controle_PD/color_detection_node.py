@@ -46,6 +46,9 @@ class ColorDetectionNode:
         # Variáveis para controle PID
         self.last_error = 0
 
+        # Fator de conversão de pixels para metros
+        self.pixels_per_meter = 100
+
     def adjust_contrast(self, image, alpha=1.5, beta=0):
         adjusted_image = cv2.convertScaleAbs(image, alpha=alpha, beta=beta)
         return adjusted_image
@@ -76,6 +79,8 @@ class ColorDetectionNode:
         detected_blue = len(blue_contours) > 0
         detected_orange = len(orange_contours) > 0
 
+        distance = 0
+
         if detected_pink and detected_blue and detected_orange:
             pink_moments = cv2.moments(mask_pink)
             blue_moments = cv2.moments(mask_blue)
@@ -84,6 +89,9 @@ class ColorDetectionNode:
             pink_center = (int(pink_moments['m10'] / pink_moments['m00']), int(pink_moments['m01'] / pink_moments['m00']))
             blue_center = (int(blue_moments['m10'] / blue_moments['m00']), int(blue_moments['m01'] / blue_moments['m00']))
             orange_center = (int(orange_moments['m10'] / orange_moments['m00']), int(orange_moments['m01'] / orange_moments['m00']))
+
+            # Calcula a distância entre a bola e o robô
+            distance = self.calculate_distance_cm(orange_center, blue_center)
 
             # Encontra o retângulo que envolve todas as áreas detectadas
             x, y, w, h = cv2.boundingRect(np.vstack(pink_contours + blue_contours))
@@ -104,7 +112,7 @@ class ColorDetectionNode:
             linear_velocity, angular_velocity = self.calculate_velocities(orange_center, blue_center, square_center)
 
             # Calcula velocidades dos motores
-            left_wheel_vel, right_wheel_vel = self.calculate_wheel_velocities(linear_velocity, angular_velocity)
+            left_wheel_vel, right_wheel_vel = self.calculate_wheel_velocities(linear_velocity, angular_velocity, distance)
 
             # Publica velocidades dos motores
             wheel_vel_msg = Float64MultiArray(data=[left_wheel_vel, right_wheel_vel])
@@ -117,9 +125,10 @@ class ColorDetectionNode:
             vel_text = f'Motor Left: {left_wheel_vel:.2f}, Motor Right: {right_wheel_vel:.2f}'
             cv2.putText(cv_image, vel_text, (10, 40), self.font, self.font_scale, self.font_color, self.font_thickness, cv2.LINE_AA)
 
-            # Mostra coordenadas da bola e do robô
+            # Mostra coordenadas da bola, do robô e a distância entre eles
             cv2.putText(cv_image, f'Bola: ({orange_center[0]}, {orange_center[1]})', (10, 60), self.font, self.font_scale, self.font_color, self.font_thickness, cv2.LINE_AA)
             cv2.putText(cv_image, f'Robo: ({blue_center[0]}, {blue_center[1]})', (10, 80), self.font, self.font_scale, self.font_color, self.font_thickness, cv2.LINE_AA)
+            cv2.putText(cv_image, f'Distancia: {distance:.2f} cm', (10, 100), self.font, self.font_scale, self.font_color, self.font_thickness, cv2.LINE_AA)
 
         cv2.imshow("Color Detection", cv_image)
         cv2.waitKey(1)
@@ -138,17 +147,23 @@ class ColorDetectionNode:
 
         return linear_velocity, angular_velocity
 
-    def calculate_wheel_velocities(self, linear_velocity, angular_velocity):
-        max_velocity = 50
+    def calculate_distance_cm(self, point1, point2):
+        distance_pixels = np.sqrt((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2)
+        distance_meters = distance_pixels / self.pixels_per_meter
+        distance_cm = distance_meters * 100
+        return distance_cm
+
+    def calculate_wheel_velocities(self, linear_velocity, angular_velocity, distance):
+        max_velocity = 60
         angular_velocity *= 10
         # Parâmetros de controle PID
-        kp = 2
-        kd = 0.8
+        kp = 1.9
+        kd = 0.5
 
         # Calcula o erro
         error = angular_velocity
 
-        if error != 0:
+        if error != 0 and distance>130:
             # Calcula o termo derivativo
             derivative = (error - self.last_error) * kd
 
@@ -167,6 +182,11 @@ class ColorDetectionNode:
 
             # Atualiza o erro anterior
             self.last_error = error
+        
+        elif distance < 130:
+            # Define as velocidades dos motores como zero para parar o robô
+            right_wheel_vel = 0
+            left_wheel_vel = 0
 
         return left_wheel_vel, right_wheel_vel
 
