@@ -1,88 +1,116 @@
-# Testes-Robo-VSSS ⚽🤖
+Testes-Robo-VSSS ⚽🤖
 
-## Descrição
+Descrição
 
-Projeto para testes e configuração do robô de competição **Very Small Size Soccer (VSSS)**, integrando **ESPDUINO** para processamento de dados, **L298** para controle dos motores e utilizando o **ROS (Robot Operating System)** para comunicação com a câmera.
+Projeto para testes e configuração do robô de competição Very Small Size Soccer (VSSS), integrando WeMos D1 R2 WiFi ESP8266 para processamento de dados e comunicação, L298P Motor Shield para controle dos motores e utilizando o ROS (Robot Operating System) para comunicação com a câmera.
 
-## 📌 Características Principais
+📌 Acesse nosso Trello para informações detalhadas e organizadas sobre recursos, instalação das dependências do ROS, fotos dos testes, fotos dos robôs e do campo.
 
-- 🔹 **ESPDUINO** para processamento e comunicação do robô.
-- 🔹 **L298** para controle dos motores.
-- 🔹 **ROS** para integração com a câmera.
-- 🔹 **Visão computacional** para detecção de cores e posicionamento.
-- 🔹 **Controle dinâmico** de velocidade angular e linear.
+📌 Características Principais
 
-## 📂 Estrutura do Projeto
+🔹 WeMos D1 R2 WiFi ESP8266 para comunicação Wi-Fi do robô.
 
-```
+🔹 L298P Motor Shield para controle dos motores.
+
+🔹 ROS para integração com a câmera.
+
+🔹 Visão computacional com OpenCV para detecção de cores, posicionamento e orientação.
+
+🔹 Controle PID para ajuste dinâmico das velocidades angular e linear.
+
+🔹 Comunicação Wi-Fi entre robôs e computador.
+
+
+📂 Estrutura do Projeto
+
 Testes-Robo-VSSS/
-├── calibration/               # Scripts para calibração de cores via HSV
-│   ├── color_calibration.py   # Calibração de cores do robô e da bola
-├── src/
-│   ├── color_detection_node.py # Arquivo principal para detecção de cores
-│   ├── velocity_control.py     # Cálculo de velocidades e conversão para PWM
+├── algoritmos dos robôs/      # Algoritmos principais dos robôs
+│   ├── algoritmo do jogador.py # Algoritmo do robô jogador
+│   ├── algoritmo do goleiro.py # Algoritmo do robô goleiro
+├── calibração/                # Scripts para calibração de cores via HSV
+│   ├── calibration.py         # Calibração de cores do robô e da bola
+├── Outros testes/             # Testes adicionais e controle manual
 ├── README.md
-```
 
-## 🛠 Como Funciona?
+🛠 Como Funciona?
 
-1. **Calibração de cores** 🎨
+O controle principal do robô é feito por um nó no computador, que faz um subscribe das imagens da câmera e um publish das velocidades para o WeMos D1 R2 WiFi ESP8266. A ESP recebe esses comandos e envia as velocidades para a ponte (L298P Motor Shield) para controlar os motores do robô.
 
-   - O script `color_calibration.py` é utilizado para ajustar os valores de HSV das cores do robô e da bola.
-   - Os valores calibrados são inseridos no arquivo `color_detection_node.py`.
+1. Calibração de cores 🎨
 
-2. **Detecção de cores** 🎯
+Execute o pacote usb_cam e o script calibration.py.
 
-   - O arquivo `color_detection_node.py` é o principal do projeto.
-   - Ele identifica as cores do robô e da bola usando visão computacional.
-   - A partir das cores detectadas, calcula as velocidades linear e angular do robô.
+Ajuste os valores HSV usando sliders para definir as cores do robô e da bola.
 
-3. **Controle do Robô** ⚙️
+Anote os valores HSV (lower e upper) das cores e atualize nos arquivos algoritmo do jogador.py ou algoritmo do goleiro.py.
 
-   - Após calcular as velocidades, os dados são transformados em PWM.
-   - O controle final é enviado aos motores para guiar o robô até a bola de forma eficiente e precisa.
 
-## 🎥 Vídeos de Testes
+
+2. Execução dos Algoritmos 🎯
+
+Para rodar o robô jogador ou goleiro, execute:
+
+roscore
+
+Pacote usb_cam para a câmera
+
+serial_node para conectar a ESP ao computador
+
+O arquivo algoritmo do jogador.py ou algoritmo do goleiro.py (os dois não funcionam juntos simultaneamente)
+
+
+
+
+
+🎥 Vídeos de Testes
 
 Confira os testes do robô em funcionamento:
 
-🔗 Playlist completa dos testes: [YouTube](https://www.youtube.com/watch?v=eGvhpNceoEk\&list=PLrcudhIfihuCvisP4GRgBESSTaiVgz14I\&index=1)
+🔗 Playlist completa dos testes: YouTube
 
-## 🚀 Como Executar o Projeto
+🚀 Como Executar o Projeto
 
-1. **Clone o repositório**
+1. Clone o repositório
 
-   ```bash
-   git clone https://github.com/seu-usuario/Testes-Robo-VSSS.git
-   cd Testes-Robo-VSSS
-   ```
+git clone https://github.com/seu-usuario/Testes-Robo-VSSS.git
+cd Testes-Robo-VSSS
 
-2. **Configure o ambiente**
 
-   - Instale as dependências necessárias para o ROS e OpenCV.
-   - Verifique a compatibilidade com o ESPDUINO e o driver do motor L298.
+2. Configure o ambiente
 
-3. **Calibre as cores**
+Instale ROS, OpenCV e dependências.
 
-   ```bash
-   python calibration/color_calibration.py
-   ```
+Verifique compatibilidade com WeMos D1 R2 WiFi ESP8266 e L298P.
 
-4. **Execute a detecção de cores**
 
-   ```bash
-   python src/color_detection_node.py
-   ```
 
-## 🏆 Contribuições
+3. Calibre as cores
 
-Sinta-se à vontade para abrir **Issues** e enviar **Pull Requests** para melhorias!
+roscore
+rosrun usb_cam usb_cam_node
+python calibration.py
 
-## 📜 Licença
 
-Este projeto está sob a licença **MIT**. Leia o arquivo [LICENSE](LICENSE) para mais detalhes.
+4. Execute os algoritmos dos robôs
+
+roscore
+rosrun usb_cam usb_cam_node
+rosrun rosserial_python serial_node.py _port:=/dev/ttyUSB0
+python "algoritmos dos robôs/algoritmo do jogador.py" # ou
+python "algoritmos dos robôs/algoritmo do goleiro.py"
+
+
+
+🏆 Contribuições
+
+Sinta-se à vontade para abrir Issues e enviar Pull Requests para melhorias!
+
+📜 Licença
+
+Este projeto está sob a licença MIT. Leia o arquivo LICENSE para mais detalhes.
+
 
 ---
 
-🚀 **Desenvolvido com paixão pela robótica!** 🤖⚽
+🚀 Desenvolvido com paixão pela robótica! 🤖⚽
 
