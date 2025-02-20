@@ -89,10 +89,6 @@ Confira os testes do robô em funcionamento:
 
 Sinta-se à vontade para abrir **Issues** e enviar **Pull Requests** para melhorias!
 
-## 📜 Licença
-
-Este projeto está sob a licença **MIT**. Leia o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ---
 
 🚀 **Desenvolvido com paixão pela robótica!** 🤖⚽
