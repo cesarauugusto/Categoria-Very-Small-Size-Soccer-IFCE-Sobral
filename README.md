@@ -51,7 +51,7 @@ O controle principal do robô é feito por um nó no computador, que faz um **su
 Confira os testes do robô em funcionamento:
 
 
-🔗 Playlist completa dos testes: [Playlist de teste da Categoria Very Small Size Soccer IFCE-Sobral ](https://www.youtube.com/watch?v=eGvhpNceoEk\&list=PLrcudhIfihuCvisP4GRgBESSTaiVgz14I\&index=1)
+🔗 Playlist completa dos videos [Categoria Very Small Size Soccer IFCE-Sobral](https://www.youtube.com/watch?v=eGvhpNceoEk\&list=PLrcudhIfihuCvisP4GRgBESSTaiVgz14I\&index=1)
 
 ## 🚀 Como Executar o Projeto
 
