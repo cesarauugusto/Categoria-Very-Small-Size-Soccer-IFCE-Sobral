@@ -1,0 +1,238 @@
+.sistemaPage {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+}
+
+.sistemaHeader,
+.sistemaSection {
+    background: white;
+    border: 1px solid #d1e7d6;
+    border-radius: 24px;
+    padding: 34px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+}
+
+.sistemaHeader {
+    background: linear-gradient(135deg, #19875415, #20c99710), white;
+    border-radius: 28px;
+}
+
+.sistemaHeader h2,
+.sistemaSection h2 {
+    color: #0f5132;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    margin: 0 0 18px;
+    text-align: center;
+}
+
+.sistemaSection h3 {
+    color: #0f5132;
+    font-size: 1.45rem;
+    margin: 20px 0 12px;
+    text-align: center;
+}
+
+.sistemaHeader p,
+.sistemaSection p {
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.videoBox {
+    position: relative;
+    width: min(100%, 900px);
+    padding-bottom: min(56.25%, 506px);
+    height: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #d1e7d6;
+    background: #0f172a;
+    margin: 22px auto 0;
+}
+
+.videoBox iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.imageCard {
+    margin: 24px auto;
+    padding: 18px;
+    border-radius: 20px;
+    background: #f7fcf8;
+    border: 1px solid #d7eadc;
+    max-width: 980px;
+}
+
+.imageCard img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    display: block;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #d1e7d6;
+}
+
+.imageCard figcaption {
+    color: #0f5132;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+.resultadoGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.repoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 24px 0;
+}
+
+.repoCard {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #f7fcf8;
+    border: 1px solid #d7eadc;
+    border-radius: 20px;
+    padding: 22px;
+    transition: 0.2s ease;
+}
+
+.repoCard:hover {
+    transform: translateY(-3px);
+    border-color: #198754;
+    background: #ecfdf3;
+}
+
+.repoCard span {
+    display: inline-block;
+    background: #198754;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.repoCard h3 {
+    color: #0f5132;
+    margin: 0 0 10px;
+    text-align: left;
+    font-size: 1.25rem;
+}
+
+.repoCard p {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.terminalBox {
+    width: min(100%, 900px);
+    margin: 16px auto;
+    text-align: left;
+}
+
+.terminalLabel {
+    display: inline-block;
+    background: #198754;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 10px 10px 0 0;
+    font-weight: 800;
+    font-size: 0.88rem;
+}
+
+.codeBlock {
+    background: #0f172a;
+    color: #d1fae5;
+    border: 1px solid #22314a;
+    padding: 18px;
+    border-radius: 0 16px 16px 16px;
+    overflow-x: auto;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre;
+}
+
+.codeBlock code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.95rem;
+}
+
+.destaque {
+    background: linear-gradient(135deg, #19875412, #20c99710), white;
+}
+
+.divisorInterno {
+    border: none;
+    border-top: 1px solid #d1e7d6;
+    margin: 30px 0;
+}
+
+.caixaObservacao {
+    background: #f3fbf6;
+    border: 1px solid #d1e7d6;
+    border-radius: 18px;
+    padding: 22px;
+    margin-top: 24px;
+}
+
+.caixaObservacao h3 {
+    color: #0f5132;
+    margin-top: 0;
+    text-align: left;
+}
+
+.caixaObservacao p {
+    margin-bottom: 0;
+}
+
+.grupoBotoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.instructionList {
+    color: #4b5563;
+    line-height: 1.9;
+}
+
+@media (max-width: 900px) {
+
+    .sistemaHeader,
+    .sistemaSection {
+        padding: 24px;
+    }
+
+    .sistemaHeader h2,
+    .sistemaSection h2,
+    .sistemaSection h3 {
+        text-align: left;
+    }
+
+    .repoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .videoBox {
+        width: 100%;
+    }
+}

@@ -1,0 +1,232 @@
+.ambientePage {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+}
+
+.ambienteHeader {
+  background: linear-gradient(135deg, #19875415, #20c99710), white;
+  border: 1px solid #d1e7d6;
+  border-radius: 28px;
+  padding: 42px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+}
+
+.ambienteHeader h2 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  margin: 10px 0 18px;
+  color: #0f5132;
+}
+
+.ambienteHeader p {
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.ambienteGridInfo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ambienteGridInfo div {
+  background: white;
+  border: 1px solid #d1e7d6;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+}
+
+.ambienteGridInfo h3 {
+  color: #198754;
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.ambienteGridInfo p {
+  color: #1f2937;
+  margin: 0;
+  font-weight: 700;
+}
+
+.ambienteSection {
+  background: white;
+  border: 1px solid #d1e7d6;
+  border-radius: 24px;
+  padding: 34px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+}
+
+.ambienteSection h2 {
+  font-size: 2rem;
+  margin: 0 0 18px;
+  color: #0f5132;
+  text-align: center;
+}
+
+.ambienteSection p {
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 18px;
+  background: #f7fcf8;
+  border: 1px solid #d7eadc;
+  border-radius: 20px;
+  padding: 22px;
+  margin-top: 18px;
+}
+
+.stepNumber {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: #198754;
+  color: white;
+  font-weight: 900;
+}
+
+.stepContent h3 {
+  margin: 0 0 10px;
+  color: #0f5132;
+}
+
+.terminalBox {
+  width: min(100%, 900px);
+  margin: 16px auto;
+  text-align: left;
+}
+
+.terminalLabel {
+  display: inline-block;
+  background: #198754;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.codeBlock {
+  background: #0f172a;
+  color: #d1fae5;
+  border: 1px solid #22314a;
+  padding: 18px;
+  border-radius: 0 16px 16px 16px;
+  overflow-x: auto;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre;
+}
+
+.codeBlock code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+.linkList {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.linkList a {
+  background: #f3fbf6;
+  color: #0f5132;
+  text-decoration: none;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #d1e7d6;
+  font-weight: 700;
+  text-align: center;
+}
+
+.linkList a:hover {
+  border-color: #198754;
+  background: #ecfdf3;
+}
+
+.parameterGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.parameterGrid div {
+  background: #f7fcf8;
+  border: 1px solid #d7eadc;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.parameterGrid h3 {
+  color: #198754;
+  margin: 0 0 10px;
+}
+
+.instructionList {
+  color: #4b5563;
+  line-height: 1.9;
+}
+
+.imagemExplicativa {
+  margin: 20px auto;
+  padding: 18px;
+  background: #f3fbf6;
+  border: 1px solid #d1e7d6;
+  border-radius: 18px;
+  max-width: 900px;
+}
+
+.imagemExplicativa img {
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  display: block;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #d1e7d6;
+}
+
+.imagemExplicativa p {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.destaque {
+  background: linear-gradient(135deg, #19875412, #20c99710), white;
+}
+
+@media (max-width: 900px) {
+
+  .ambienteHeader,
+  .ambienteSection {
+    padding: 24px;
+  }
+
+  .ambienteGridInfo,
+  .parameterGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+  }
+
+  .ambienteSection h2 {
+    text-align: left;
+  }
+}
