@@ -627,13 +627,13 @@ body {
 
 /* Logo IEEE: mais larga */
 .logoHeroIeee {
-  width: 230px;
+  width: 100px;
   max-width: 38vw;
 }
 
 /* Logo IFCE: mais estreita */
 .logoHeroIfce {
-  width: 350px;
+  width: 150px;
   max-width: 24vw;
 }
 
@@ -649,4 +649,3 @@ body {
 .menuLogo span {
   font-size: 1rem;
 }
-
