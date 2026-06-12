@@ -491,8 +491,8 @@ body {
 }
 
 .logosCabecalho img {
-  width: 46px;
-  height: 46px;
+  width: 110px;
+  height: 80px;
   object-fit: contain;
   background: white;
   border-radius: 8px;
