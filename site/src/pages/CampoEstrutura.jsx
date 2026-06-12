@@ -1,3 +1,5 @@
+const imagePath = (fileName) => `${import.meta.env.BASE_URL}images/${fileName}`;
+
 export default function CampoEstrutura() {
   return (
     <section className="secao" id="campo-estrutura">
@@ -15,7 +17,7 @@ export default function CampoEstrutura() {
       <div className="estruturaVertical">
         <article className="estruturaBloco">
           <img
-            src="/images/campo-vsss.png"
+            src={imagePath("campo-vsss.png")}
             alt="Campo da categoria IEEE Very Small Size Soccer"
           />
 
@@ -40,9 +42,8 @@ export default function CampoEstrutura() {
 
             <p>
               Para evitar que a bola fique presa nos cantos, cada canto do campo
-              possui um triângulo retângulo com lados de{" "}
-              <strong>7 cm</strong>. O gol possui{" "}
-              <strong>40 cm de comprimento</strong> e{" "}
+              possui um triângulo retângulo com lados de <strong>7 cm</strong>.
+              O gol possui <strong>40 cm de comprimento</strong> e{" "}
               <strong>10 cm de profundidade</strong>. As linhas e marcações
               internas também foram definidas de acordo com as especificações da
               competição.
@@ -51,7 +52,9 @@ export default function CampoEstrutura() {
             <ul>
               <li>Campo preto, não reflexivo e construído em madeira.</li>
               <li>Dimensões principais: 1,50 m x 1,30 m.</li>
-              <li>Paredes laterais com 5 cm de altura e 2,5 cm de espessura.</li>
+              <li>
+                Paredes laterais com 5 cm de altura e 2,5 cm de espessura.
+              </li>
               <li>Cantos com triângulos retângulos de lados iguais a 7 cm.</li>
               <li>Gol com 40 cm de comprimento e 10 cm de profundidade.</li>
               <li>Área do goleiro utilizada nas estratégias defensivas.</li>
@@ -70,7 +73,7 @@ export default function CampoEstrutura() {
 
         <article className="estruturaBloco">
           <img
-            src="/images/prototipo-robo.png"
+            src={imagePath("prototipo-robo.png")}
             alt="Protótipo 3D do robô VSSS"
           />
 
@@ -94,7 +97,7 @@ export default function CampoEstrutura() {
 
         <article className="estruturaBloco">
           <img
-            src="/images/componentes-robo.png"
+            src={imagePath("componentes-robo.png")}
             alt="Componentes internos do robô VSSS"
           />
 
@@ -131,7 +134,7 @@ export default function CampoEstrutura() {
 
         <img
           className="imagemFluxoProjeto"
-          src="/images/fluxo-campo-camera-robo.png"
+          src={imagePath("fluxo-campo-camera-robo.png")}
           alt="Diagrama da relação entre campo, câmera e robôs"
         />
 
@@ -153,7 +156,7 @@ export default function CampoEstrutura() {
 
         <img
           className="imagemFluxoProjeto"
-          src="/images/visao-superior-campo.png"
+          src={imagePath("visao-superior-campo.png")}
           alt="Exemplo da visão superior do campo capturada pela câmera"
         />
 

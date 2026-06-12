@@ -1,5 +1,7 @@
 import "./AmbienteROS.css";
 
+const imagePath = (fileName) => `${import.meta.env.BASE_URL}images/${fileName}`;
+
 function CodeBlock({ children, label = "Terminal" }) {
   return (
     <div className="terminalBox">
@@ -179,7 +181,7 @@ export default function AmbienteROS() {
 
           <div className="imagemExplicativa">
             <img
-              src="/images/bashrc-source-ros.png"
+              src={imagePath("bashrc-source-ros.png")}
               alt="Comando source adicionado ao final do arquivo .bashrc"
             />
             <p>
