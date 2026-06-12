@@ -3,15 +3,13 @@ export default function Header() {
     <header className="menuSuperior">
       <div className="menuConteudo">
         <a href="#topo" className="menuLogo">
-          <div className="logosCabecalho">
-            <img src={`${import.meta.env.BASE_URL}images/ieee.png`} alt="Logo da IEEE" />
-            <img src={`${import.meta.env.BASE_URL}images/logo-ifce.png`} alt="Logo do IFCE" />
-          </div>
-
+          <div> <img src={`${import.meta.env.BASE_URL}images/logo-ifce-sozinha.png`}/></div>
           <div>
-            <strong>IFCE</strong>
-            <span>VSSS Open Platform</span>
+  
+          <span>VSSS</span>
+          <span> Open Platform</span>
           </div>
+          
         </a>
 
         <nav className="menuLinks">

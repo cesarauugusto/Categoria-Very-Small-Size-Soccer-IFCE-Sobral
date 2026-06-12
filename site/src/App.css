@@ -587,3 +587,66 @@ body {
     height: 70px;
   }
 }
+
+.heroLogosDestaque {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+  margin: 24px auto 28px;
+  padding: 22px 34px;
+  width: fit-content;
+  max-width: 100%;
+  background: #f7fcf8;
+  border: 1px solid #d1e7d6;
+  border-radius: 26px;
+  box-shadow: 0 10px 28px rgba(15, 81, 50, 0.12);
+}
+
+.heroLogosDestaque img {
+  display: block;
+  object-fit: contain;
+  background: white;
+  border-radius: 18px;
+  padding: 12px;
+  border: 1px solid #d1e7d6;
+}
+
+/* LOGOS DESTACADAS NO HERO, SEM ESTICAR */
+.logoHeroIeee,
+.logoHeroIfce {
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+  height: auto;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 8px 10px 26px;
+}
+
+/* Logo IEEE: mais larga */
+.logoHeroIeee {
+  width: 230px;
+  max-width: 38vw;
+}
+
+/* Logo IFCE: mais estreita */
+.logoHeroIfce {
+  width: 350px;
+  max-width: 24vw;
+}
+
+/* CABEÇALHO SEM LOGOS */
+.menuLogo {
+  gap: 0;
+}
+
+.menuLogo strong {
+  font-size: 1.25rem;
+}
+
+.menuLogo span {
+  font-size: 1rem;
+}
+
