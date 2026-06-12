@@ -4,8 +4,8 @@ export default function Header() {
       <div className="menuConteudo">
         <a href="#topo" className="menuLogo">
           <div className="logosCabecalho">
-            <img src="/images/ieee.png" alt="Logo da IEEE" />
-            <img src="/images/logo-ifce.png" alt="Logo do IFCE" />
+            <img src={`${import.meta.env.BASE_URL}images/ieee.png`} alt="Logo da IEEE" />
+            <img src={`${import.meta.env.BASE_URL}images/logo-ifce.png`} alt="Logo do IFCE" />
           </div>
 
           <div>

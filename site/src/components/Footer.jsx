@@ -2,8 +2,8 @@ export default function Footer() {
   return (
     <footer className="footerIfce">
       <div className="footerLogos">
-        <img src="/images/ieee.png" alt="Logo da IEEE" />
-        <img src="/images/logo-ifce.png" alt="Logo do IFCE" />
+        <img src={`${import.meta.env.BASE_URL}images/ieee.png`} alt="Logo da IEEE" />
+        <img src={`${import.meta.env.BASE_URL}images/logo-ifce.png`} alt="Logo do IFCE" />
       </div>
 
       <div>

@@ -16,9 +16,13 @@ function CodeBlock({ children, label = "Terminal" }) {
 }
 
 function ImageCard({ src, alt, caption }) {
+  const imageSrc = src.startsWith("/images/")
+    ? `${import.meta.env.BASE_URL}${src.replace("/", "")}`
+    : src;
+
   return (
     <figure className="imageCard">
-      <img src={src} alt={alt} />
+      <img src={imageSrc} alt={alt} />
       <figcaption>{caption}</figcaption>
     </figure>
   );
