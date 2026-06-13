@@ -13,25 +13,24 @@ function App() {
       <Header />
 
       <section className="hero">
-  <p className="tag">Projeto de pesquisa e desenvolvimento</p>
+        <p className="tag">Projeto de pesquisa e desenvolvimento</p>
 
+        <img
+          className="logoHeroIeee"
+          src={`${import.meta.env.BASE_URL}images/ieee.png`}
+          alt="Logo da IEEE"
+        />
 
-  <img
-    className="logoHeroIeee"
-    src={`${import.meta.env.BASE_URL}images/ieee.png`}
-    alt="Logo da IEEE"
-  />
+        <img
+          className="logoHeroIfce"
+          src={`${import.meta.env.BASE_URL}images/logo-ifce.png`}
+          alt="Logo do IFCE"
+        />
 
-  <img
-    className="logoHeroIfce"
-    src={`${import.meta.env.BASE_URL}images/logo-ifce.png`}
-    alt="Logo do IFCE"
-  />
-
-
-  <h1>
-    Plataforma Open Source para Reprodução de um Sistema de Competição Very Small Size Soccer
-  </h1>
+        <h1>
+          Plataforma Open Source para Reprodução de um Sistema de Competição Very
+          Small Size Soccer
+        </h1>
 
         <p className="descricao">
           Esta plataforma organiza de forma pública e didática o desenvolvimento

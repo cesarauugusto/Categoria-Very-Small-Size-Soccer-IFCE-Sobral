@@ -627,13 +627,13 @@ body {
 
 /* Logo IEEE: mais larga */
 .logoHeroIeee {
-  width: 100px;
+  width: 150px;
   max-width: 38vw;
 }
 
 /* Logo IFCE: mais estreita */
 .logoHeroIfce {
-  width: 150px;
+  width: 250px;
   max-width: 24vw;
 }
 
@@ -648,4 +648,33 @@ body {
 
 .menuLogo span {
   font-size: 1rem;
+}
+
+/* AJUSTE FINAL DOS BOTÕES DE DOCUMENTO */
+.botaoDocumento {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 24px auto 0;
+}
+
+/* Quando os botões estiverem dentro de um grupo flexível */
+.grupoBotoes .botaoDocumento {
+  margin: 0;
+}
+
+/* Garante que os botões dentro dos blocos do campo também fiquem centralizados */
+.estruturaBloco .botaoDocumento {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Garante que os botões dentro das seções do sistema também fiquem centralizados */
+.sistemaSection>.botaoDocumento,
+.sistemaSection .botaoDocumento {
+  margin-left: auto;
+  margin-right: auto;
 }
