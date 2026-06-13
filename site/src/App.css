@@ -149,23 +149,6 @@ body {
   background: #0f5132;
 }
 
-.botoes a:nth-child(2) {
-  background: #157347;
-}
-
-.botoes a:nth-child(3) {
-  background: #0f5132;
-}
-
-.botoes a:nth-child(4) {
-  background: #20c997;
-  color: #063b2b;
-}
-
-.botoes a:nth-child(5) {
-  background: #146c43;
-}
-
 .secao {
   max-width: 1200px;
   margin: 0 auto 40px;
@@ -677,4 +660,25 @@ body {
 .sistemaSection .botaoDocumento {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* BOTÕES PRINCIPAIS COM A MESMA COR */
+.botoes a,
+.botoes a:nth-child(1),
+.botoes a:nth-child(2),
+.botoes a:nth-child(3),
+.botoes a:nth-child(4),
+.botoes a:nth-child(5) {
+  background: #198754;
+  color: white;
+}
+
+.botoes a:hover,
+.botoes a:nth-child(1):hover,
+.botoes a:nth-child(2):hover,
+.botoes a:nth-child(3):hover,
+.botoes a:nth-child(4):hover,
+.botoes a:nth-child(5):hover {
+  background: #0f5132;
+  color: white;
 }
